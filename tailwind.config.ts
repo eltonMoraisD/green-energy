@@ -10,7 +10,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "hero-img": "url('/photo1.avif')"
+        "hero-img": "url('/photo1.avif')",
+
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -62,5 +63,6 @@ const config: Config = {
     }
   },
   plugins: [require("tailwindcss-animate")],
+
 };
 export default config;

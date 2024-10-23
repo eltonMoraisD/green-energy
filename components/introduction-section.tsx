@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Separator } from './ui/separator';
 import { PiSolarPanel } from 'react-icons/pi';
 import { MdWindPower } from 'react-icons/md';
 import { GiHydraShot } from 'react-icons/gi';
@@ -13,7 +12,7 @@ import SectionTitle from './section-title';
 
 const energieType = [
   {
-    id: 1,
+    id: 3465756843231,
     title: 'Solar Energy',
     description:
       'Solar energy is radiant light and heat from the Sun that is harnessed using a range of technologies such as solar panels.',
@@ -23,32 +22,32 @@ const energieType = [
     img: '/solar1.webp',
   },
   {
-    id: 2,
+    id: 2345326121,
     title: 'Wind Energy',
     description:
       'Wind energy is the use of air flow through wind turbines to provide the mechanical power to turn electric generators.',
     Icon: (
-      <MdWindPower className="ize-6 md:size-7 mt-2 group-hover:fill-white" />
+      <MdWindPower className="size-6 md:size-7 mt-2 group-hover:fill-white" />
     ),
     img: '/eolic2.webp',
   },
   {
-    id: 3,
+    id: 3353564366212,
     title: 'Hydro Energy',
     description:
       'Hydro energy is the use of water flow through turbines to provide the mechanical power to turn electric generators.',
     Icon: (
-      <GiHydraShot className="ize-6 md:size-7 mt-2 group-hover:fill-white" />
+      <GiHydraShot className="size-6 md:size-7 mt-2 group-hover:fill-white" />
     ),
     img: '/hidro.webp',
   },
   {
-    id: 4,
+    id: 235346224,
     title: 'Geothermal Energy',
     description:
       'Geothermal energy is the heat from the Earth. It is clean and sustainable.',
     Icon: (
-      <SiGeopandas className="ize-6 md:size-7 mt-2 group-hover:fill-white" />
+      <SiGeopandas className="size-6 md:size-7 mt-2 group-hover:fill-white" />
     ),
     img: '/geotermal.webp',
   },
@@ -69,7 +68,7 @@ const Introduction = () => {
       <h1 className="py-10 text-3xl md:text-5xl font-semibold">
         Promoting new energy <br /> technologies and solutions.
       </h1>
-      <div className="grid lg:grid-cols-4 lg:grid-rows-2 md:gap-x-10 md:gap-y-6 gap-4">
+      <div className="grid lg:grid-cols-4 lg:grid-rows-2 lg:gap-x-6 lg:gap-y-6 gap-4">
         <Image
           src={energieType[energieTypeIndex].img}
           alt={energieType[energieTypeIndex].title}
