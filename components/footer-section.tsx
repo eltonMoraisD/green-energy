@@ -16,18 +16,18 @@ const Footer = () => {
         <h1 className="uppercase text-6xl xl:text-9xl">Suergy</h1>
       </div>
       <div className="grid md:grid-cols-[2.5fr_1fr_1fr_1fr] gap-4">
-        <ul className="flex flex-col lg:flex-row lg:text-base md:text-xs uppercase gap-x-4 gap-y-2">
+        <ul className="flex flex-col lg:flex-row lg:text-base md:text-xs uppercase gap-x-4 gap-y-2 ">
           <li>Home</li>
           <li>green energy</li>
           <li>case study</li>
           <li>resources</li>
         </ul>
-        <div className="md:space-y-1">
+        <div className="md:space-y-1 flex flex-col place-items-end md:place-items-start">
           <h2 className="pb-1 md:pb-5 text-gray-400 uppercase">Contacts</h2>
           <p>+1234 567 890</p>
           <p>info@gmail.com</p>
         </div>
-        <div className="md:space-y-1">
+        <div className="md:space-y-1 flex flex-col place-items-end sm:place-items-start">
           <h2 className="pb-1 md:pb-5 text-gray-400 uppercase">Follow us</h2>
           <Link className="uppercase block" href={'#'}>
             instagram
@@ -39,7 +39,7 @@ const Footer = () => {
             linkedin
           </Link>
         </div>
-        <div className="md:space-y-1">
+        <div className="md:space-y-1 flex flex-col place-items-end md:place-items-start">
           <h2 className="pb-1 md:pb-5 text-gray-400 uppercase">adress</h2>
           <p>37 green lane</p>
           <p className="uppercase">eco city, rs 1234</p>
