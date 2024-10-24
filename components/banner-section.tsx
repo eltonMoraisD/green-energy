@@ -28,7 +28,7 @@ const Banner = () => {
               emissions, lower energy costs, and support innovative solutions
               that benefit our planet.
             </p>
-            <Button className="bg-white text-black rounded-full px-3 py-6">
+            <Button className="bg-white text-black rounded-full px-3 py-6 hover:bg-white/90">
               Join Now
               <span className="bg-black rounded-full p-2">
                 <PiArrowRight className="!text-white" />
