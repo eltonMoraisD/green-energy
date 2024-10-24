@@ -50,8 +50,10 @@ const articles = [
 
 const Articles = () => {
   const [articleIndex, setArticleIndex] = useState(0);
+  const [activeArticleTitle, setActiveArticleTitle] = useState(articles[0]);
+
   return (
-    <section className="container mx-auto h-screen mt-20">
+    <section className="container mx-auto mt-20 px-4">
       <SectionTitle
         title="Articles & blog"
         sup="04"
@@ -67,45 +69,62 @@ const Articles = () => {
           width={1024}
           height={1024}
           alt={articles[articleIndex].title}
-          className="rounded-xl"
+          className="rounded-xl object-cover"
         />
-        <div className="grid grid-cols-4 grid-rows-[1fr_1fr_2fr]">
-          <div className="col-span-full">
-            <p>{articles[articleIndex].date}</p>
-            <h2 className="mt-2 text-gray-400 text-xl">
-              {articles[articleIndex].bannerText}
-            </h2>
-          </div>
-
-          <div className="col-span-full self-end">
-            <div className="flex items-center justify-between">
-              <h1 className="text-xl font-semibold">
-                {articles[articleIndex].title}
-              </h1>
-              {/* <p className="uppercase text-sm text-nowrap">[Read More]</p> */}
+        <div className="flex flex-col justify-between">
+          <div className="">
+            <div className="mt-10 md:mt-0">
+              <p className="text-xs lg:text-sm">
+                {articles[articleIndex].date}
+              </p>
+              <h2 className="mt-2 text-gray-400 text-sm lg:text-xl">
+                {articles[articleIndex].bannerText}
+              </h2>
             </div>
-            <Separator className="bg-black h-0.5 mt-1" />
-          </div>
 
-          <div className="col-start-2 col-end-5">
-            {articles.map((article, index) => (
-              <div key={article.id}>
-                <div
-                  onClick={() => setArticleIndex(index)}
-                  className="flex items-center justify-between mt-4 cursor-pointer"
-                >
-                  <p className="text-lg font-semibold text-gray-400">
-                    {article.title}
-                  </p>
-                  <p className="uppercase text-sm text-nowrap">[Read More]</p>
+            <div className="self-end h-full">
+              <div className="my-4 xl:my-10">
+                <div className="flex items-center justify-between">
+                  <h1 className="text-xl font-semibold">
+                    {activeArticleTitle.title}
+                  </h1>
                 </div>
-                <Separator
-                  className={cn('my-4', {
-                    hidden: articles.indexOf(article) === articles.length - 1,
-                  })}
-                />
+                <Separator className="bg-black h-0.5 mt-1" />
               </div>
-            ))}
+
+              {/* Articles links */}
+              {articles.map((article, index) => (
+                <div
+                  key={article.id}
+                  className="lg:grid lg:grid-cols-[1fr_3fr] "
+                >
+                  {article.title !== activeArticleTitle.title && (
+                    <>
+                      <div
+                        onClick={() => {
+                          setArticleIndex(index),
+                            setActiveArticleTitle(article);
+                        }}
+                        className="flex items-center justify-between cursor-pointer lg:col-start-2 w-full"
+                      >
+                        <p className="lg:text-lg font-semibold text-gray-400">
+                          {article.title}
+                        </p>
+                        <p className="uppercase text-xs lg:text-sm text-nowrap">
+                          [Read More]
+                        </p>
+                      </div>
+                      <Separator
+                        className={cn('my-2 lg:my-4 lg:col-start-2', {
+                          hidden:
+                            articles.indexOf(article) === articles.length - 1,
+                        })}
+                      />
+                    </>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

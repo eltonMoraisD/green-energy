@@ -1,4 +1,6 @@
 import Articles from '@/components/articles-section';
+import Banner from '@/components/banner-section';
+import Footer from '@/components/footer-section';
 import Hero from '@/components/hero';
 import IntroductionSection from '@/components/introduction-section';
 import Projects from '@/components/projects-section';
@@ -13,6 +15,8 @@ export default function Home() {
       <SustainableSection />
       <Projects />
       <Articles />
+      <Banner />
+      <Footer />
     </main>
   );
 }

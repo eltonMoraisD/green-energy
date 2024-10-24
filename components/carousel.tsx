@@ -21,7 +21,7 @@ const Carousel = ({ natureData }: CarouselProps) => {
       <div className="relative">
         <Image
           src={natureData[index].img}
-          alt="carousel"
+          alt={natureData[index].title}
           width={1920}
           height={1080}
           className="w-full h-[600px] md:h-[700px] brightness-50 object-cover"
