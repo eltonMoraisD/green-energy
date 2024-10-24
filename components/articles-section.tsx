@@ -101,10 +101,9 @@ const Articles = () => {
                   {article.title !== activeArticleTitle.title && (
                     <>
                       <div
-                        onClick={() => {
-                          setArticleIndex(index),
-                            setActiveArticleTitle(article);
-                        }}
+                        onClick={() => (
+                          setArticleIndex(index), setActiveArticleTitle(article)
+                        )}
                         className="flex items-center justify-between cursor-pointer lg:col-start-2 w-full"
                       >
                         <p className="lg:text-lg font-semibold text-gray-400">
