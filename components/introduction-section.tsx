@@ -76,7 +76,7 @@ const Introduction = () => {
     <section
       id="green-energy"
       ref={ref}
-      className="px-4 container mx-auto mt-10 "
+      className="px-4 container mx-auto mt-10"
     >
       <SectionTitle
         sup="01"
