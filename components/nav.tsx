@@ -9,9 +9,9 @@ const Nav = () => {
   const { targetContainer } = useTrackingScrollContext();
 
   return (
-    <div className="fixed text-3xl w-full z-50 pt-10 pb-4 backdrop-blur-sm border-b border-white/10">
+    <div className="fixed text-3xl w-full z-50 pt-4 pb-4 backdrop-blur-sm border-b border-white/10">
       <nav className="flex items-center justify-between container px-4 sm:px-10 md:px-0 mx-auto">
-        <div className="flex items-center gap-4">
+        <Link href="#home" className="flex items-center gap-4">
           <Image
             src="/logo.webp"
             width={500}
@@ -27,7 +27,7 @@ const Nav = () => {
           >
             Suergy
           </p>
-        </div>
+        </Link>
 
         <ul
           className={cn(
@@ -38,10 +38,18 @@ const Nav = () => {
             }
           )}
         >
-          <Link href="#home">Home</Link>
-          <Link href="#green-energy">green energy</Link>
-          <Link href="#case-study">case study</Link>
-          <Link href="#projects">projects</Link>
+          <Link className="hover:opacity-70" href="#home">
+            Home
+          </Link>
+          <Link className="hover:opacity-70" href="#green-energy">
+            green energy
+          </Link>
+          <Link className="hover:opacity-70" href="#case-study">
+            case study
+          </Link>
+          <Link className="hover:opacity-70" href="#projects">
+            projects
+          </Link>
         </ul>
 
         <Button
