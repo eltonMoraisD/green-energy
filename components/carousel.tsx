@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { PiArrowLeft } from 'react-icons/pi';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { useTrackingScrollContext } from '@/context/TrackingScrollContext';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 type CarouselProps = {
   natureData: {
@@ -15,17 +17,34 @@ type CarouselProps = {
 };
 
 const Carousel = ({ natureData }: CarouselProps) => {
+  const { setTargetContainer, ref } = useTrackingScrollContext();
   const [index, setIndex] = useState(0);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 60px', 'end start'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', () => {
+    if (scrollYProgress.get() > 0) {
+      setTargetContainer(false);
+    } else {
+      setTargetContainer(true);
+    }
+  });
+
   return (
-    <section className="">
+    <section>
       <div className="relative">
-        <Image
-          src={natureData[index].img}
-          alt={natureData[index].title}
-          width={1920}
-          height={1080}
-          className="w-full h-[600px] md:h-[700px] brightness-50 object-cover"
-        />
+        <div ref={ref}>
+          <Image
+            src={natureData[index].img}
+            alt={natureData[index].title}
+            width={1920}
+            height={1080}
+            className="w-full h-[600px] md:h-[700px] brightness-50 object-cover"
+          />
+        </div>
         <div className="">
           <div className="flex flex-col p-3 md:p-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] sm:w-[50%] lg:w-[35%] xl:w-[30%] bg-white rounded-xl">
             <Image

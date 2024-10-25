@@ -1,14 +1,16 @@
 'use client';
-
 import { useState } from 'react';
+import Image from 'next/image';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { cn } from '@/lib/utils';
+
+import SectionTitle from './section-title';
+
 import { PiSolarPanel } from 'react-icons/pi';
 import { MdWindPower } from 'react-icons/md';
 import { GiHydraShot } from 'react-icons/gi';
 import { SiGeopandas } from 'react-icons/si';
-
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import SectionTitle from './section-title';
+import { useTrackingScrollContext } from '@/context/TrackingScrollContext';
 
 const energieType = [
   {
@@ -55,9 +57,27 @@ const energieType = [
 
 const Introduction = () => {
   const [energieTypeIndex, setEnergieTypeIndex] = useState(0);
+  const { setTargetContainer, ref } = useTrackingScrollContext();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 95px', 'end start'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', () => {
+    if (scrollYProgress.get() > 0) {
+      setTargetContainer(true);
+    } else {
+      setTargetContainer(false);
+    }
+  });
 
   return (
-    <section className="px-4 container mx-auto mt-10">
+    <section
+      id="green-energy"
+      ref={ref}
+      className="px-4 container mx-auto mt-10 "
+    >
       <SectionTitle
         sup="01"
         title="Introduction"

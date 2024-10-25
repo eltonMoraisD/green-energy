@@ -2,7 +2,10 @@ import { ArrowDownIcon } from '@radix-ui/react-icons';
 
 const Hero = () => {
   return (
-    <section className="relative brightness-90 bg-hero-img bg-cover bg-no-repeat grid grid-cols-2 grid-rows-[2.5fr_1fr] h-screen">
+    <section
+      id="home"
+      className="relative brightness-90 bg-hero-img bg-cover bg-no-repeat grid grid-cols-2 grid-rows-[2.5fr_1fr] h-screen"
+    >
       <div className="container mx-auto px-4 sm:px-10 md:px-0 col-start-1 col-end-3 row-start-2 row-end-3">
         <div className="uppercase text-white flex flex-col">
           <div className="flex flex-col xl:flex-row relative text-6xl xl:text-9xl font-bold justify-between">

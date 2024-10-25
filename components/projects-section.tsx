@@ -1,8 +1,12 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { PiArrowRight } from 'react-icons/pi';
 import { Separator } from './ui/separator';
 import { cn } from '@/lib/utils';
+import { useTrackingScrollContext } from '@/context/TrackingScrollContext';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 const farmContent = [
   {
@@ -56,8 +60,21 @@ const farmContent = [
 ];
 
 const Projects = () => {
+  const { ref, setTargetContainer } = useTrackingScrollContext();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start 95px', 'end start'],
+  });
+
+  useMotionValueEvent(scrollYProgress, 'change', () => {
+    if (scrollYProgress.get() > 0) {
+      setTargetContainer(true);
+    } else {
+      setTargetContainer(false);
+    }
+  });
   return (
-    <section className="container mx-auto px-4 ">
+    <section id="projects" ref={ref} className="container mx-auto px-4">
       <h1 className="pb-10 text-4xl md:text-6xl font-semibold uppercase text-end">
         our projects
       </h1>

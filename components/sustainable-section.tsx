@@ -34,7 +34,7 @@ const natureData = [
 
 const SustainableSection = () => {
   return (
-    <div className="">
+    <div id="case-study" className="">
       <section className="mt-10 container mx-auto px-4">
         <SectionTitle
           sup="02"

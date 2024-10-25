@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import Nav from '../components/nav';
+import { TrackingScrollProvider } from '@/context/TrackingScrollContext';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -25,12 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth scroll-pt-36">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Nav />
-        {children}
+        <TrackingScrollProvider>
+          <Nav />
+          {children}
+        </TrackingScrollProvider>
       </body>
     </html>
   );
