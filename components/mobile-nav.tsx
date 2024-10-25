@@ -91,5 +91,3 @@ export const MobileNav = () => (
     </motion.div>
   </div>
 );
-
-const itemIds = [0, 1, 2, 3, 4];
