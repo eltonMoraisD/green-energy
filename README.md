@@ -1,8 +1,7 @@
-this is a practical project based on the following design: https://dribbble.com/shots/24452271-SUERGY-Renewable-Energy-Landing-Page
+CREDITS: this is a practical project based on the following design: https://dribbble.com/shots/24452271-SUERGY-Renewable-Energy-Landing-Page
 
 LIVE PREVIEW -> https://green-energy-one.vercel.app
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
